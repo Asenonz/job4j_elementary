@@ -12,7 +12,9 @@ public class Calculator {
 
         public static void main(String[] args) {
             int result3 = func1(100);
+            int result2 = func2(-1);
             System.out.println(result3);
+            System.out.println(result2);
         }
     }
 
