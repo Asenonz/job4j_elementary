@@ -15,5 +15,5 @@ public class Calculator {
             System.out.println(result3);
         }
     }
-//Результат работы метода
+
 
