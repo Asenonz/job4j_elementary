@@ -5,22 +5,19 @@ import java.util.zip.ZipFile;
 public class JavaNameValidator {
     public static boolean isNameValid(String name) {
         boolean valid = true;
-        if (name == "") {
+        if (name.isEmpty()) {
             return false;
         }
-            int code = name.codePointAt(0);
-            if (isLowerLatinLetter(code)) {
+        if (!isLowerLatinLetter(name.codePointAt(0))) {
+            return false;
+        }
                 for (int i = 1; i < name.length(); i++) {
-                    code = name.codePointAt(i);
-                    if (isLowerLatinLetter(code) || isUpperLatinLetter(code) || isNumber(code) || isSpecialSymbol(code)) {
-                        valid = true;
-                    } else {
-                        return false;
+                    int code = name.codePointAt(i);
+                    if (!(isLowerLatinLetter(code) || isUpperLatinLetter(code) || isNumber(code) || isSpecialSymbol(code))) {
+                        valid = false;
+                        break;
                     }
                 }
-            } else {
-                return false;
-            }
         return valid;
     }
 
@@ -55,6 +52,7 @@ public class JavaNameValidator {
         }
         return valid;
     }
+
 }
 
 
