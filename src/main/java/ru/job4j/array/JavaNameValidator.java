@@ -4,13 +4,9 @@ import java.util.zip.ZipFile;
 
 public class JavaNameValidator {
     public static boolean isNameValid(String name) {
-        boolean valid = true;
-        if (name.isEmpty()) {
-            return false;
-        }
-        if (!isLowerLatinLetter(name.codePointAt(0))) {
-            return false;
-        }
+        boolean valid = false;
+        if (!name.isEmpty() && isLowerLatinLetter(name.codePointAt(0))) {
+            valid = true;
                 for (int i = 1; i < name.length(); i++) {
                     int code = name.codePointAt(i);
                     if (!(isLowerLatinLetter(code) || isUpperLatinLetter(code) || isNumber(code) || isSpecialSymbol(code))) {
@@ -18,6 +14,7 @@ public class JavaNameValidator {
                         break;
                     }
                 }
+        }
         return valid;
     }
 
