@@ -20,10 +20,15 @@ public class MaxTest {
 
     @Test
     public void whenMax1To1To1To1ThenAny() {
-        int left = 1;
-        int right = 1;
         int result = Max.max(1, 1, 1, 1);
         int expected = 1;
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void whenMax5To2To4Then5() {
+        int result = Max.max(5, 2, 4);
+        int expected = 5;
         assertThat(result).isEqualTo(expected);
     }
 }
